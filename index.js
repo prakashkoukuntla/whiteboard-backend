@@ -11,12 +11,12 @@ const MongoStore = require("connect-mongo");
 const app = express();
 
 // Enable CORS - Should be placed before other routes
-app.use(
-  cors({
-    origin: "https://dreamy-buttercream-319bbb.netlify.app", // Replace with your frontend URL
-    credentials: true, // Allow credentials
-  })
-);
+// app.use(
+//   cors({
+//     origin: "https://dreamy-buttercream-319bbb.netlify.app", // Replace with your frontend URL
+//     credentials: true, // Allow credentials
+//   })
+// );
 
 // Enable JSON parsing for POST requests
 app.use(express.json());
