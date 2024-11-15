@@ -25,36 +25,36 @@ app.use(express.json());
 const dbURI =
   "mongodb+srv://prakashk:1uLLLXPBWoEn7OfV@cluster0.pwh1x.mongodb.net/whiteboardDB?retryWrites=true&w=majority&appName=Cluster0";
 
-mongoose
-  .connect(dbURI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => console.log("Connected to MongoDB Atlas"))
-  .catch((err) => console.error("Failed to connect to MongoDB", err));
+// mongoose
+//   .connect(dbURI, {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true,
+//   })
+//   .then(() => console.log("Connected to MongoDB Atlas"))
+//   .catch((err) => console.error("Failed to connect to MongoDB", err));
 
-// Configure session middleware with MongoDB as the session store
-app.use(
-  session({
-    secret: "your-secret-key",
-    resave: false,
-    saveUninitialized: false,
-    store: MongoStore.create({
-      mongoUrl: dbURI, // Use your MongoDB connection URI
-      collectionName: "sessions", // Optional: specify the collection name for sessions
-    }),
-    cookie: {
-      secure: true, // Set to true if using HTTPS
-      httpOnly: true,
-      sameSite: "None", // Change to "None" for cross-origin requests in production
-    },
-  }),
-  (req, res, next) => {
-    console.log("Session ID:", req.session.id); // Logs the session ID
-    console.log("Session Data:", req.session); // Logs full session data
-    next(); // Move to the next middleware
-  }
-);
+// // Configure session middleware with MongoDB as the session store
+// app.use(
+//   session({
+//     secret: "your-secret-key",
+//     resave: false,
+//     saveUninitialized: false,
+//     store: MongoStore.create({
+//       mongoUrl: dbURI, // Use your MongoDB connection URI
+//       collectionName: "sessions", // Optional: specify the collection name for sessions
+//     }),
+//     cookie: {
+//       secure: true, // Set to true if using HTTPS
+//       httpOnly: true,
+//       sameSite: "None", // Change to "None" for cross-origin requests in production
+//     },
+//   }),
+//   (req, res, next) => {
+//     console.log("Session ID:", req.session.id); // Logs the session ID
+//     console.log("Session Data:", req.session); // Logs full session data
+//     next(); // Move to the next middleware
+//   }
+// );
 
 // Login route
 app.post("/login", async (req, res) => {
