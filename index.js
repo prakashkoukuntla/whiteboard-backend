@@ -105,6 +105,8 @@ app.post("/login", async (req, res) => {
 
 // Route to retrieve all whiteboards for the logged-in user
 app.get("/whiteboards", async (req, res) => {
+  console.log("Incoming Cookies:", req.headers.cookie); // Log cookies
+  console.log("Session Data:", req.session); // Log session data
   if (!req.session.userId) {
     return res.status(401).send("Unauthorized");
   }
