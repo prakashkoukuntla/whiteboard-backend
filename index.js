@@ -107,6 +107,8 @@ app.post("/login", async (req, res) => {
 app.get("/whiteboards", async (req, res) => {
   console.log("Incoming Cookies:", req.headers.cookie); // Log cookies
   console.log("Session Data:", req.session); // Log session data
+  console.log("Request Headers:", req.headers); // Log all request headers
+  console.log("Incoming Cookies:", req.headers.cookie); // Log cookies specifically
   if (!req.session.userId) {
     return res.status(401).send("Unauthorized");
   }
