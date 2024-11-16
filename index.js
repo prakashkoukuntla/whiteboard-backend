@@ -91,6 +91,8 @@ app.post("/login", async (req, res) => {
 
     req.session.userId = user.name;
     console.log("Session userId set to:", req.session.userId);
+    console.log("Session ID after login:", req.session.id);
+    console.log("Session Data after login:", req.session);
 
     // Retrieve the whiteboards for the logged-in user
     const whiteboards = await Whiteboard.find({ userId: user.name });
