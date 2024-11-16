@@ -43,7 +43,7 @@ app.use(
       collectionName: "sessions", // Optional: specify the collection name for sessions
     }),
     cookie: {
-      secure: true, // Set to true if using HTTPS
+      secure: false, // Set to true if using HTTPS
       httpOnly: true,
       sameSite: "None", // Change to "None" for cross-origin requests in production
     },
