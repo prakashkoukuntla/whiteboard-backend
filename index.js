@@ -43,7 +43,7 @@ app.use(
       collectionName: "sessions", // Optional: specify the collection name for sessions
     }),
     cookie: {
-      secure: false, // Set to true if using HTTPS
+      secure: true, // Set to true if using HTTPS
       httpOnly: true,
       sameSite: "None", // Change to "None" for cross-origin requests in production
     },
@@ -108,8 +108,8 @@ app.get("/whiteboards", async (req, res) => {
   console.log("Incoming Cookies:", req.headers.cookie); // Log cookies
   console.log("Session Data:", req.session); // Log session data
   console.log("Request Headers:", req.headers); // Log all request headers
-  console.log("Incoming Cookies:", req.headers.cookie); // Log cookies specifically
   if (!req.session.userId) {
+    console.log("Unauthorized: Missing session userId");
     return res.status(401).send("Unauthorized");
   }
 
