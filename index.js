@@ -21,9 +21,12 @@ app.use(
 // Enable JSON parsing for POST requests
 app.use(express.json());
 
-// Connect to MongoDB
+// // Connect to MongoDB
+// const dbURI =
+//   "mongodb+srv://prakashk:1uLLLXPBWoEn7OfV@cluster0.pwh1x.mongodb.net/whiteboardDB?retryWrites=true&w=majority&appName=Cluster0";
+
 const dbURI =
-  "mongodb+srv://prakashk:1uLLLXPBWoEn7OfV@cluster0.pwh1x.mongodb.net/whiteboardDB?retryWrites=true&w=majority&appName=Cluster0";
+  "mongodb+srv://prakashk:1uLLLXPBWoEn7OfV@cluster0.pwh1x.mongodb.net/whiteboardDB?retryWrites=true&w=majority&appName=Cluster0&tls=true";
 
 mongoose
   .connect(dbURI, {
